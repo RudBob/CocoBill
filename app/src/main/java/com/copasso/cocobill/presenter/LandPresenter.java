@@ -32,7 +32,7 @@ public class LandPresenter extends RxPresenter<LandContract.View> implements Lan
     }
 
     @Override
-    public void signup(String username, String password, String mail) {
+    public void signUp(String username, String password, String mail) {
         MyUser myUser =new MyUser();
         myUser.setUsername(username);
         myUser.setPassword(password);

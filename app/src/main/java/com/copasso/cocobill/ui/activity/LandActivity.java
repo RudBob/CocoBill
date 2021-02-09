@@ -149,7 +149,7 @@ public class LandActivity extends BaseMVPActivity<LandContract.Presenter>
 
         ProgressUtils.show(this, "正在注册...");
 
-        mPresenter.signup(username,password,email);
+        mPresenter.signUp(username,password,email);
 
     }
 

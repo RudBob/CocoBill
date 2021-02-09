@@ -2,6 +2,9 @@ package com.copasso.cocobill.model.bean.remote;
 
 import cn.bmob.v3.BmobUser;
 
+/**
+ * @author ry
+ */
 public class MyUser extends BmobUser {
 
     private String image;

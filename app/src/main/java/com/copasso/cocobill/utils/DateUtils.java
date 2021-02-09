@@ -172,7 +172,7 @@ public class DateUtils {
     public static String stamp2Date(String s) {
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        long lt = Long.valueOf(s);
+        long lt = Long.parseLong(s);
         Date date = new Date(lt);
         res = simpleDateFormat.format(date);
         return res;
