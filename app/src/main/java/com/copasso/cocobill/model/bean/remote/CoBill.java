@@ -36,8 +36,9 @@ public class CoBill extends BmobObject {
         this.income = bBill.getIncome();
         this.version = bBill.getVersion();
         //不要忘记设置服务器ObjectId
-        if (bBill.getRid() != null)
+        if (bBill.getRid() != null) {
             setObjectId(bBill.getRid());
+        }
     }
 
     public CoBill(float cost, String content, String userid, String payName, String payImg,

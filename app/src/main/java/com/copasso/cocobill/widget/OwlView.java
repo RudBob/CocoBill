@@ -70,9 +70,11 @@ public class OwlView extends View {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                getViewTreeObserver().addOnGlobalLayoutListener(this);
                 ViewGroup.LayoutParams lp = getLayoutParams();
-                if(lp==null)return;
+                if(lp==null) {
+                    return;
+                }
                 lp.width = dip2px(175);
                 lp.height = dip2px(107);
                 setLayoutParams(lp);
@@ -204,7 +206,9 @@ public class OwlView extends View {
     }
 
     private Bitmap compressBitmap(Bitmap bitmap, float reqsW, float reqsH, boolean isAdjust) {
-        if (bitmap == null || reqsW == 0 || reqsH == 0) return bitmap;
+        if (bitmap == null || reqsW == 0 || reqsH == 0) {
+            return bitmap;
+        }
         if (bitmap.getWidth() > reqsW || bitmap.getHeight() > reqsH) {
             float scaleX = new BigDecimal(reqsW).divide(new BigDecimal(bitmap.getWidth()), 4, RoundingMode.DOWN).floatValue();
             float scaleY = new BigDecimal(reqsH).divide(new BigDecimal(bitmap.getHeight()), 4, RoundingMode.DOWN).floatValue();

@@ -10,7 +10,6 @@
         android:gravity="center_vertical"
         android:background="?attr/colorPrimary">
         <RelativeLayout
-            android:id="@+id/back_layout"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -21,9 +20,9 @@
                 android:paddingRight="10dp"
                 android:src="@mipmap/ic_back"
                 android:onClick="onClick"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="15dp"
+                android:contentDescription="TODO" />
             <TextView
-                android:id="@+id/mine_frag_tv"
                 android:text="明细"
                 android:textSize="13sp"
                 android:textColor="@color/white"
@@ -127,7 +126,8 @@
             android:src="@mipmap/ic_tb_note_delete"
             android:onClick="onClick"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:contentDescription="TODO" />
     </RelativeLayout>
 
     <LinearLayout
@@ -183,7 +183,8 @@
                 android:paddingBottom="5dp"
                 android:src="@mipmap/ic_tb_note_remark"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:contentDescription="TODO" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -416,7 +417,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/ic_tb_calc_del"
-                    />
+                    android:contentDescription="TODO" />
             </RelativeLayout>
             <TextView
                 android:id="@+id/tb_calc_num_done"

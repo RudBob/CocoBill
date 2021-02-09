@@ -13,6 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.copasso.cocobill.MyApplication;
@@ -21,8 +25,8 @@ import com.copasso.cocobill.base.BaseMVPActivity;
 import com.copasso.cocobill.model.bean.local.BBill;
 import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
-import com.copasso.cocobill.presenter.contract.BillContract;
 import com.copasso.cocobill.presenter.BillPresenter;
+import com.copasso.cocobill.presenter.contract.BillContract;
 import com.copasso.cocobill.ui.adapter.BookNoteAdapter;
 import com.copasso.cocobill.ui.adapter.MonthAccountAdapter;
 import com.copasso.cocobill.utils.DateUtils;
@@ -34,10 +38,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import static com.copasso.cocobill.utils.DateUtils.FORMAT_D;
 import static com.copasso.cocobill.utils.DateUtils.FORMAT_M;
@@ -52,28 +52,66 @@ import static com.copasso.cocobill.utils.DateUtils.FORMAT_YMD;
  */
 public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
         implements BillContract.View, View.OnClickListener {
-
-    private TextView incomeTv;    //收入按钮
-    private TextView outcomeTv;   //支出按钮
-    private TextView sortTv;     //显示选择的分类
-    private TextView moneyTv;     //金额
-    private TextView dateTv;      //时间选择
-    private TextView cashTv;      //支出方式选择
-    private ImageView remarkIv;   //
+    /**
+     * 收入按钮
+     */
+    private TextView incomeTv;
+    /**
+     * 支出按钮
+     */
+    private TextView outcomeTv;
+    /**
+     * 显示选择的分类
+     */
+    private TextView sortTv;
+    /**
+     * 金额
+     */
+    private TextView moneyTv;
+    /**
+     * 时间选择
+     */
+    private TextView dateTv;
+    /**
+     * 支出方式选择
+     */
+    private TextView cashTv;
+    private ImageView remarkIv;
     private ViewPager viewpagerItem;
     private LinearLayout layoutIcon;
 
-    //计算器
+    /**
+     * 计算器
+     */
     protected boolean isDot;
-    protected String num = "0";               //整数部分
-    protected String dotNum = ".00";          //小数部分
-    protected final int MAX_NUM = 9999999;    //最大整数
-    protected final int DOT_NUM = 2;          //小数部分最大位数
+    /**
+     * 整数部分
+     */
+    protected String num = "0";
+    /**
+     * 小数部分
+     */
+    protected String dotNum = ".00";
+    /**
+     * 最大整数
+     */
+    protected final int MAX_NUM = 9999999;
+    /**
+     * 小数部分最大位数
+     */
+    protected final int DOT_NUM = 2;
     protected int count = 0;
-    //选择器
+    /**
+     * 选择器
+     */
     protected List<String> cardItems;
-    protected int selectedPayinfoIndex = 0;      //选择的支付方式序号
-    //viewpager数据
+    /**
+     * 选择的支付方式序号
+     */
+    protected int selectedPayinfoIndex = 0;
+    /**
+     * viewpager数据
+     */
     protected int page;
     protected boolean isTotalPage;
     protected int sortPage = -1;
@@ -82,21 +120,29 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
     protected List<View> viewList;
     protected ImageView[] icons;
 
-    //记录上一次点击后的分类
+    /**
+     * 记录上一次点击后的分类
+     */
     public BillingSort lastBean;
 
     public boolean isOutcome = true;
     public boolean isEdit = false;
-    //old Bill
+    /**
+     * old Bill
+     */
     private Bundle bundle;
 
-    //选择时间
+    /**
+     * 选择时间
+     */
     protected int mYear;
     protected int mMonth;
     protected int mDay;
     protected String days;
 
-    //备注
+    /**
+     * 备注
+     */
     protected String remarkInput = "";
     protected NoteBean noteBean = null;
 
@@ -175,24 +221,30 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
             case R.id.back_btn:
                 finish();
                 break;
-            case R.id.tb_note_income://收入
+            //收入
+            case R.id.tb_note_income:
                 isOutcome = false;
                 setTitleStatus();
                 break;
-            case R.id.tb_note_outcome://支出
+            //支出
+            case R.id.tb_note_outcome:
                 isOutcome = true;
                 setTitleStatus();
                 break;
-            case R.id.tb_note_cash://现金
+            //现金
+            case R.id.tb_note_cash:
                 showPayinfoSelector();
                 break;
-            case R.id.tb_note_date://日期
+            //日期
+            case R.id.tb_note_date:
                 showTimeSelector();
                 break;
-            case R.id.tb_note_remark://备注
+            //备注
+            case R.id.tb_note_remark:
                 showContentDialog();
                 break;
-            case R.id.tb_calc_num_done://确定
+            //确定
+            case R.id.tb_calc_num_done:
                 doCommit();
                 break;
             case R.id.tb_calc_num_1:
@@ -226,18 +278,21 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
                 calcMoney(0);
                 break;
             case R.id.tb_calc_num_dot:
-                if (dotNum.equals(".00")) {
+                if (".00".equals(dotNum)) {
                     isDot = true;
                     dotNum = ".";
                 }
                 moneyTv.setText(num + dotNum);
                 break;
-            case R.id.tb_note_clear://清空
+            //清空
+            case R.id.tb_note_clear:
                 doClear();
                 break;
-            case R.id.tb_calc_num_del://删除
+            //删除
+            case R.id.tb_calc_num_del:
                 doDelete();
                 break;
+            default:
         }
     }
 
@@ -251,10 +306,8 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case 0:
-                    mPresenter.getBillNote();
-                    break;
+            if (requestCode == 0) {
+                mPresenter.getBillNote();
             }
         }
     }
@@ -287,20 +340,20 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
             mDay = i2;
             if (mMonth + 1 < 10) {
                 if (mDay < 10) {
-                    days = new StringBuffer().append(mYear).append("-").append("0").
-                            append(mMonth + 1).append("-").append("0").append(mDay).toString();
+                    days = mYear + "-" + "0" +
+                            (mMonth + 1) + "-" + "0" + mDay;
                 } else {
-                    days = new StringBuffer().append(mYear).append("-").append("0").
-                            append(mMonth + 1).append("-").append(mDay).toString();
+                    days = mYear + "-" + "0" +
+                            (mMonth + 1) + "-" + mDay;
                 }
 
             } else {
                 if (mDay < 10) {
-                    days = new StringBuffer().append(mYear).append("-").
-                            append(mMonth + 1).append("-").append("0").append(mDay).toString();
+                    days = mYear + "-" +
+                            (mMonth + 1) + "-" + "0" + mDay;
                 } else {
-                    days = new StringBuffer().append(mYear).append("-").
-                            append(mMonth + 1).append("-").append(mDay).toString();
+                    days = mYear + "-" +
+                            (mMonth + 1) + "-" + mDay;
                 }
 
             }
@@ -318,7 +371,7 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
                 .inputType(InputType.TYPE_CLASS_TEXT)
                 .inputRangeRes(0, 200, R.color.textRed)
                 .input("写点什么", remarkInput, (dialog, input) -> {
-                    if (input.equals("")) {
+                    if ("".contentEquals(input)) {
                         Toast.makeText(getApplicationContext(), "内容不能为空！" + input,
                                 Toast.LENGTH_SHORT).show();
                     } else {
@@ -335,7 +388,7 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
     public void doCommit() {
         final SimpleDateFormat sdf = new SimpleDateFormat(" HH:mm:ss");
         final String crDate = days + sdf.format(new Date());
-        if ((num + dotNum).equals("0.00")) {
+        if ("0.00".equals(num + dotNum)) {
             Toast.makeText(this, "唔姆，你还没输入金额", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -344,14 +397,14 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
         BBill bBill;
         if (isEdit) {
             bBill = new BBill(bundle.getLong("id"), bundle.getString("rid"),
-                    Float.valueOf(num + dotNum), remarkInput, MyApplication.getCurrentUserId(),
+                    Float.parseFloat(num + dotNum), remarkInput, MyApplication.getCurrentUserId(),
                     noteBean.getPayinfo().get(selectedPayinfoIndex).getPayName(),
                     noteBean.getPayinfo().get(selectedPayinfoIndex).getPayImg(),
                     lastBean.getSortName(), lastBean.getSortImg(),
                     DateUtils.getMillis(crDate), !isOutcome, bundle.getInt("version") + 1);
             mPresenter.updateBill(bBill);
         } else {
-            bBill = new BBill(null, null, Float.valueOf(num + dotNum), remarkInput,
+            bBill = new BBill(null, null, Float.parseFloat(num + dotNum), remarkInput,
                     MyApplication.getCurrentUserId(),
                     noteBean.getPayinfo().get(selectedPayinfoIndex).getPayName(),
                     noteBean.getPayinfo().get(selectedPayinfoIndex).getPayImg(),
@@ -386,14 +439,15 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
                 isDot = false;
                 dotNum = ".00";
             }
-            moneyTv.setText(num + dotNum);
         } else {
-            if (num.length() > 0)
+            if (num.length() > 0) {
                 num = num.substring(0, num.length() - 1);
-            if (num.length() == 0)
+            }
+            if (num.length() == 0) {
                 num = "0";
-            moneyTv.setText(num + dotNum);
+            }
         }
+        moneyTv.setText(num + dotNum);
     }
 
     /**
@@ -402,8 +456,9 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
      * @param money
      */
     protected void calcMoney(int money) {
-        if (num.equals("0") && money == 0)
+        if ("0".equals(num) && money == 0) {
             return;
+        }
         if (isDot) {
             if (count < DOT_NUM) {
                 count++;
@@ -411,8 +466,9 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
                 moneyTv.setText(num + dotNum);
             }
         } else if (Integer.parseInt(num) < MAX_NUM) {
-            if (num.equals("0"))
+            if ("0".equals(num)) {
                 num = "";
+            }
             num += money;
             moneyTv.setText(num + dotNum);
         }
@@ -462,8 +518,9 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
         tempData.addAll(mDatas);
         //末尾加上添加选项
         tempData.add(new BillingSort(null, "添加", "sort_tianjia.png", 0, 0, null));
-        if (tempData.size() % 15 == 0)
+        if (tempData.size() % 15 == 0) {
             isTotalPage = true;
+        }
         page = (int) Math.ceil(tempData.size() * 1.0 / 15);
         for (int i = 0; i < page; i++) {
             tempList = new ArrayList<>();
@@ -555,8 +612,9 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
             icons[i].setAdjustViewBounds(true);
             layoutIcon.addView(icons[i]);
         }
-        if (sortPage != -1)
+        if (sortPage != -1) {
             viewpagerItem.setCurrentItem(sortPage);
+        }
     }
 
     /***********************************************************************/

@@ -44,10 +44,11 @@ public class MonthChartBillViewBinder extends ItemViewBinder<BBill, MonthChartBi
 
         holder.rank.setText(holder.getAdapterPosition() + 1 + "");
         holder.title.setText(item.getSortName());
-        if (item.isIncome())
+        if (item.isIncome()) {
             holder.money.setText("+" + item.getCost());
-        else
+        } else {
             holder.money.setText("-" + item.getCost());
+        }
         holder.root.setOnClickListener(v -> {
             new MaterialDialog.Builder(mContext)
                     .title(item.getSortName())

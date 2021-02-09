@@ -134,11 +134,9 @@ public class DateUtils {
      * */
     public static boolean compareDate(Date startDate, Date endDate) {
         if (startDate != null && endDate != null) {
-            if (startDate.getTime() >= endDate.getTime()) {
-//                ToastTools.showToast("开始日期不能大于或等于结束日期");
-//                ToastUtil.Toast("所选日期不能不能大于或等于当前日期");
-                return false;
-            }
+            //                ToastTools.showToast("开始日期不能大于或等于结束日期");
+            //                ToastUtil.Toast("所选日期不能不能大于或等于当前日期");
+            return startDate.getTime() < endDate.getTime();
         }
         return true;
     }
@@ -174,7 +172,7 @@ public class DateUtils {
     public static String stamp2Date(String s) {
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        long lt = new Long(s);
+        long lt = Long.valueOf(s);
         Date date = new Date(lt);
         res = simpleDateFormat.format(date);
         return res;
@@ -258,8 +256,7 @@ public class DateUtils {
             format = FORMAT;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
-        String s = sdf.format(d);
-        return s;
+        return sdf.format(d);
     }
 
     public static String getCurDateStr() {
@@ -606,7 +603,9 @@ public class DateUtils {
      */
 
     public static String convertYMDHMS(String date, String format) {
-        if (TextUtils.isEmpty(date)) return "";
+        if (TextUtils.isEmpty(date)) {
+            return "";
+        }
         return convert(date, FORMAT_YMDHMS, format);
     }
 
@@ -726,11 +725,7 @@ public class DateUtils {
             Date date2 = sdf.parse(time2);
             long l1 = date1.getTime() / 1000;
             long l2 = date2.getTime() / 1000;
-            if (l2 - l1 > 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return l2 - l1 > 0;
         } catch (ParseException e) {
             e.printStackTrace();
         }

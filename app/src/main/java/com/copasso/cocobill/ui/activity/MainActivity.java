@@ -57,9 +57,6 @@ import cn.bmob.v3.BmobUser;
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private TextView tOutcome;
@@ -73,9 +70,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     protected static final int USERINFOACTIVITY_CODE = 0;
     protected static final int LOGINACTIVITY_CODE = 1;
 
-    // Tab
-    private FragmentManager mFragmentManager;
-    private MainFragmentPagerAdapter mFragmentPagerAdapter;
     private MonthListFragment monthListFragment;
     private MonthChartFragment monthChartFragment;
 
@@ -109,9 +103,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void initWidget() {
         super.initWidget();
-        toolbar = findViewById(R.id.toolbar);
-        tabLayout = findViewById(R.id.tablayout);
-        viewPager = findViewById(R.id.main_viewpager);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TabLayout tabLayout = findViewById(R.id.tablayout);
+        ViewPager viewPager = findViewById(R.id.main_viewpager);
         drawer = findViewById(R.id.main_drawer);
         navigationView = findViewById(R.id.main_nav_view);
         tOutcome = findViewById(R.id.t_outcome);
@@ -135,8 +129,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setDrawerHeaderAccount();
 
         //初始化ViewPager
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentPagerAdapter = new MainFragmentPagerAdapter(mFragmentManager);
+        // Tab
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        MainFragmentPagerAdapter mFragmentPagerAdapter = new MainFragmentPagerAdapter(mFragmentManager);
         mFragmentPagerAdapter.addFragment(monthListFragment, "明细");
         mFragmentPagerAdapter.addFragment(monthChartFragment, "图表");
 
@@ -183,18 +178,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.toolbar_date:
-                //时间选择器
-                new TimePickerBuilder(mContext, (Date date, View v) -> {
-                    monthListFragment.changeDate(DateUtils.date2Str(date, "yyyy"), DateUtils.date2Str(date, "MM"));
-                    monthChartFragment.changeDate(DateUtils.date2Str(date, "yyyy"), DateUtils.date2Str(date, "MM"));
-                }).setType(new boolean[]{true, true, false, false, false, false})
-                        .setRangDate(null, Calendar.getInstance())
-                        .isDialog(true)
-                        .build().show();
-                //是否显示为对话框样式
-                break;
+        if (item.getItemId() == R.id.toolbar_date) {//时间选择器
+            new TimePickerBuilder(mContext, (Date date, View v) -> {
+                monthListFragment.changeDate(DateUtils.date2Str(date, "yyyy"), DateUtils.date2Str(date, "MM"));
+                monthChartFragment.changeDate(DateUtils.date2Str(date, "yyyy"), DateUtils.date2Str(date, "MM"));
+            }).setType(new boolean[]{true, true, false, false, false, false})
+                    .setRangDate(null, Calendar.getInstance())
+                    .isDialog(true)
+                    .build().show();
+            //是否显示为对话框样式
         }
         return super.onOptionsItemSelected(item);
     }

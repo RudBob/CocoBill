@@ -47,8 +47,9 @@ public class MonthListAdapter extends StickyHeaderGridAdapter {
     }
 
     public void setOnStickyHeaderClickListener(OnStickyHeaderClickListener listener) {
-        if (onStickyHeaderClickListener == null)
+        if (onStickyHeaderClickListener == null) {
             this.onStickyHeaderClickListener = listener;
+        }
     }
 
     public void remove(int section, int offset) {

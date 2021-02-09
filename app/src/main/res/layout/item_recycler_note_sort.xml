@@ -19,7 +19,8 @@
             android:layout_height="35dp"
             android:layout_marginStart="@dimen/margin"
             android:layout_marginLeft="@dimen/margin"
-            tools:src="@mipmap/sort_yiban" />
+            tools:src="@mipmap/sort_yiban"
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/item_note_edit_tv"
@@ -39,6 +40,7 @@
             android:layout_marginEnd="@dimen/margin"
             android:layout_marginRight="@dimen/margin"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_drag" />
+            android:src="@mipmap/ic_drag"
+            android:contentDescription="TODO" />
     </LinearLayout>
 </LinearLayout>

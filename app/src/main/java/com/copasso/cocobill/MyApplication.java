@@ -44,8 +44,9 @@ public class MyApplication extends Application {
      */
     public static String getCurrentUserId() {
         currentUser = BmobUser.getCurrentUser(MyUser.class);
-        if (currentUser == null)
+        if (currentUser == null) {
             return null;
+        }
         return BmobUser.getCurrentUser(MyUser.class).getObjectId();
     }
 }

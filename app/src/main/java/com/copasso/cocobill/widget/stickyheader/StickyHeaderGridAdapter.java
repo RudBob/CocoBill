@@ -15,7 +15,7 @@ import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
  * Copyright (c) 2017 Sergej Kravcenko
  */
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess"})
 public abstract class StickyHeaderGridAdapter extends RecyclerView.Adapter<StickyHeaderGridAdapter.ViewHolder> {
    public static final String TAG = "StickyHeaderGridAdapter";
 

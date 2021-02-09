@@ -54,23 +54,16 @@ public class MonthChartFragment extends BaseMVPFragment<MonthChartContract.Prese
     private ImageView centerImg;
     private CircleImageView circleBg;
     private ImageView circleImg;
-    private RelativeLayout layoutCircle;
     private TextView title;
     private TextView money;
     private TextView rankTitle;
-    private RelativeLayout layoutOther;
-    private TextView otherMoney;
     private SwipeRefreshLayout swipe;
     private RelativeLayout itemType;
     private RelativeLayout itemOther;
-    private RecyclerView rvList;
     private LinearLayout layoutTypedata;
 
     private boolean TYPE = true;//默认总收入true
     private List<MonthChartBean.SortTypeList> tMoneyBeanList;
-    private String sort_image;//饼状图与之相对应的分类图片地址
-    private String sort_name;
-    private String back_color;
 
     private MonthChartBean monthChartBean;
 
@@ -103,16 +96,16 @@ public class MonthChartFragment extends BaseMVPFragment<MonthChartContract.Prese
         centerImg = getViewById(R.id.center_img);
         circleBg = getViewById(R.id.circle_bg);
         circleImg = getViewById(R.id.circle_img);
-        layoutCircle = getViewById(R.id.layout_circle);
+        RelativeLayout layoutCircle = getViewById(R.id.layout_circle);
         title = getViewById(R.id.title);
         money = getViewById(R.id.money);
         rankTitle = getViewById(R.id.rank_title);
-        layoutOther = getViewById(R.id.layout_other);
-        otherMoney = getViewById(R.id.other_money);
+        RelativeLayout layoutOther = getViewById(R.id.layout_other);
+        TextView otherMoney = getViewById(R.id.other_money);
         swipe = getViewById(R.id.swipe);
         itemType = getViewById(R.id.item_type);
         itemOther = getViewById(R.id.item_other);
-        rvList = getViewById(R.id.rv_list);
+        RecyclerView rvList = getViewById(R.id.rv_list);
         layoutTypedata = getViewById(R.id.layout_typedata);
 
 
@@ -169,8 +162,9 @@ public class MonthChartFragment extends BaseMVPFragment<MonthChartContract.Prese
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        if (e == null)
+        if (e == null) {
             return;
+        }
         int entryIndex = (int) h.getX();
         PieChartUtils.setRotationAngle(mChart, entryIndex);
         setNoteData(entryIndex,e.getY());
@@ -233,18 +227,20 @@ public class MonthChartFragment extends BaseMVPFragment<MonthChartContract.Prese
      * @param index
      */
     private void setNoteData(int index, float value) {
-        if (null==tMoneyBeanList||tMoneyBeanList.size()==0)
+        if (null==tMoneyBeanList||tMoneyBeanList.size()==0) {
             return;
-        sort_image = tMoneyBeanList.get(index).getSortImg();
-        sort_name = tMoneyBeanList.get(index).getSortName();
-        back_color = tMoneyBeanList.get(index).getBack_color();
+        }
+        //饼状图与之相对应的分类图片地址
+        String sort_image = tMoneyBeanList.get(index).getSortImg();
+        String sort_name = tMoneyBeanList.get(index).getSortName();
+        String back_color = tMoneyBeanList.get(index).getBack_color();
         if (TYPE) {
             money.setText("-" + tMoneyBeanList.get(index).getMoney());
         } else {
             money.setText("+" + tMoneyBeanList.get(index).getMoney());
         }
         DecimalFormat df = new DecimalFormat("0.00%");
-        title.setText(sort_name+" : "+df.format(value));
+        title.setText(sort_name +" : "+df.format(value));
         rankTitle.setText(sort_name + "排行榜");
         circleBg.setImageDrawable(new ColorDrawable(Color.parseColor(back_color)));
         circleImg.setImageDrawable(PieChartUtils.getDrawable(tMoneyBeanList.get(index).getSortImg()));

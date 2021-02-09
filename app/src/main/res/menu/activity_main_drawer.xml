@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/group_bill">
+    <group>
             <item
-                android:id="@+id/nav_static"
                 android:icon="@mipmap/ic_drawer_assignment_grey600_36dp"
                 android:title="@string/statisic" />
             <item
-                android:id="@+id/nav_total"
                 android:icon="@mipmap/ic_drawer_guide"
                 android:title="@string/billing_book" />
             <item
@@ -16,7 +14,7 @@
                 android:title="@string/sync" />
     </group>
 
-    <group android:id="@+id/group_setting">
+    <group>
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@mipmap/ic_drawer_settings"

@@ -2,13 +2,11 @@ package com.copasso.cocobill.utils;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import com.copasso.cocobill.MyApplication;
 import com.copasso.cocobill.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -189,80 +187,81 @@ public class PieChartUtils {
      */
     public static Drawable getDrawable(String imgUrl) {
         Drawable drawable = null;
-        if (imgUrl.equals("sort_shouxufei.png"))
+        if ("sort_shouxufei.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_shouxufei);
-        else if (imgUrl.equals("sort_huankuan.png"))
+        } else if ("sort_huankuan.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_changhuanfeiyong);
-        else if (imgUrl.equals("sort_yongjin.png"))
+        } else if ("sort_yongjin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_yongjinjiangli);
-        else if (imgUrl.equals("sort_lingqian.png"))
+        } else if ("sort_lingqian.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_ewaishouyi);
-        else if (imgUrl.equals("sort_yiban.png"))
+        } else if ("sort_yiban.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_zijinbuchang);
-        else if (imgUrl.equals("sort_lixi.png"))
+        } else if ("sort_lixi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_lixi);
-        else if (imgUrl.equals("sort_gouwu.png"))
+        } else if ("sort_gouwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_shangchengxiaofei);
-        else if (imgUrl.equals("sort_weiyuejin.png"))
+        } else if ("sort_weiyuejin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_weiyuejin);
-        else if (imgUrl.equals("sort_zhufang.png"))
+        } else if ("sort_zhufang.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_zhufang);
-        else if (imgUrl.equals("sort_bangong.png"))
+        } else if ("sort_bangong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_bangong);
-        else if (imgUrl.equals("sort_canyin.png"))
+        } else if ("sort_canyin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_canyin);
-        else if (imgUrl.equals("sort_yiliao.png"))
+        } else if ("sort_yiliao.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_yiliao);
-        else if (imgUrl.equals("sort_tongxun.png"))
+        } else if ("sort_tongxun.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_tongxun);
-        else if (imgUrl.equals("sort_yundong.png"))
+        } else if ("sort_yundong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_yundong);
-        else if (imgUrl.equals("sort_yule.png"))
+        } else if ("sort_yule.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_yule);
-        else if (imgUrl.equals("sort_jujia.png"))
+        } else if ("sort_jujia.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_jujia);
-        else if (imgUrl.equals("sort_chongwu.png"))
+        } else if ("sort_chongwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_chongwu);
-        else if (imgUrl.equals("sort_shuma.png"))
+        } else if ("sort_shuma.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_shuma);
-        else if (imgUrl.equals("sort_juanzeng.png"))
+        } else if ("sort_juanzeng.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_juanzeng);
-        else if (imgUrl.equals("sort_lingshi.png"))
+        } else if ("sort_lingshi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_lingshi);
-        else if (imgUrl.equals("sort_haizi.png"))
+        } else if ("sort_haizi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_haizi);
-        else if (imgUrl.equals("sort_zhangbei.png"))
+        } else if ("sort_zhangbei.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_zhangbei);
-        else if (imgUrl.equals("sort_liwu.png"))
+        } else if ("sort_liwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_liwu);
-        else if (imgUrl.equals("sort_xuexi.png"))
+        } else if ("sort_xuexi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_xuexi);
-        else if (imgUrl.equals("sort_shuiguo.png"))
+        } else if ("sort_shuiguo.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_shuiguo);
-        else if (imgUrl.equals("sort_meirong.png"))
+        } else if ("sort_meirong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_meirong);
-        else if (imgUrl.equals("sort_weixiu.png"))
+        } else if ("sort_weixiu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_weixiu);
-        else if (imgUrl.equals("sort_type_lvxing.png"))
+        } else if ("sort_type_lvxing.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_lvxing);
-        else if (imgUrl.equals("sort_jiaotong.png"))
+        } else if ("sort_jiaotong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_jiaotong);
-        else if (imgUrl.equals("sort_jiushui.png"))
+        } else if ("sort_jiushui.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_jiushuiyinliao);
-        else if (imgUrl.equals("sort_lijin.png"))
+        } else if ("sort_lijin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_lijin);
-        else if (imgUrl.equals("sort_jiangjin.png"))
+        } else if ("sort_jiangjin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_jiaxi);
-        else if (imgUrl.equals("sort_fanxian.png"))
+        } else if ("sort_fanxian.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_fanxian);
-        else if (imgUrl.equals("sort_jianzhi.png"))
+        } else if ("sort_jianzhi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_jianzhi);
-        else if (imgUrl.equals("sort_tianjiade.png"))
+        } else if ("sort_tianjiade.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_qita);
-        else if (imgUrl.equals("sort_tianjia.png"))
+        } else if ("sort_tianjia.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.type_tianjiade);
-        else
+        } else {
             drawable = null;
+        }
 
         return drawable;
     }

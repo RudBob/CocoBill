@@ -77,8 +77,9 @@ public class LocalRepository {
      * @param pays
      */
     public void saveBPays(List<BPay> pays) {
-        for (BPay pay : pays)
+        for (BPay pay : pays) {
             saveBPay(pay);
+        }
     }
 
     /**
@@ -87,8 +88,9 @@ public class LocalRepository {
      * @param sorts
      */
     public void saveBsorts(List<BillingSort> sorts) {
-        for (BillingSort sort : sorts)
+        for (BillingSort sort : sorts) {
             saveBSort(sort);
+        }
     }
 
     /******************************get**************************************/
@@ -228,7 +230,7 @@ public class LocalRepository {
         return Observable.create(new ObservableOnSubscribe<Long>() {
             @Override
             public void subscribe(ObservableEmitter<Long> e) throws Exception {
-                e.onNext(new Long(0));
+                e.onNext(Long.valueOf(0));
                 e.onComplete();
             }
         });

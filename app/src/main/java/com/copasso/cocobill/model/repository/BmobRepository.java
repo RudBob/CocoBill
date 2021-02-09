@@ -135,8 +135,9 @@ public class BmobRepository {
                             listUpload.add(new CoBill(bBill));
                             //以便账单成功上传后更新本地数据
                             listBBillUpdate.add(bBill);
-                        } else
+                        } else {
                             bMap.put(bBill.getRid(), bBill);
+                        }
                     }
 
                     HashMap<String, CoBill> cMap = new HashMap<>();
@@ -165,9 +166,15 @@ public class BmobRepository {
                         }
                     }
                     //提交服务器数据的批量操作
-                    if(!listUpload.isEmpty()) saveBills(listUpload,listBBillUpdate);
-                    if(!listUpdate.isEmpty()) updateBills(listUpdate);
-                    if(!listDelete.isEmpty()) deleteBills(listDelete);
+                    if(!listUpload.isEmpty()) {
+                        saveBills(listUpload,listBBillUpdate);
+                    }
+                    if(!listUpdate.isEmpty()) {
+                        updateBills(listUpdate);
+                    }
+                    if(!listDelete.isEmpty()) {
+                        deleteBills(listDelete);
+                    }
 
                     //CoBill==》BBill
                     for (Map.Entry<String, CoBill> entry : cMap.entrySet()) {
@@ -180,8 +187,9 @@ public class BmobRepository {
                     // 发送同步成功事件
                     EventBus.getDefault().post(new SyncEvent(100));
                 }
-                else
+                else {
                     EventBus.getDefault().post(new SyncEvent(200));
+                }
             }
         });
     }

@@ -76,11 +76,16 @@ public class CommonItemLayout extends FrameLayout {
         mTxtLeft.setTextColor(mLeftTextColor);
         mTxtRight.setTextColor(mRightTextColor);
 
-        if(mLeftText != null)   mTxtLeft.setText(mLeftText);
-        if(mRightText != null)  mTxtRight.setText(mRightText);
+        if(mLeftText != null) {
+            mTxtLeft.setText(mLeftText);
+        }
+        if(mRightText != null) {
+            mTxtRight.setText(mRightText);
+        }
         setRightImage(mRightImageId);
-        if(mLeftImage != null)
+        if(mLeftImage != null) {
             mLeftImage.setBounds(0, 0, DimenUtils.dp2px(22), DimenUtils.dp2px(12));
+        }
         mTxtLeft.setCompoundDrawables(null, null, mLeftImage, null);
     }
 

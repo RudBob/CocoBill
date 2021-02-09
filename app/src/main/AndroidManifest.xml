@@ -51,7 +51,7 @@
             android:screenOrientation="portrait"/>
 
         <provider
-            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:name="cn.bmob.v3.util.BmobContentProvider" android:exported="false" 
             android:authorities="com.copasso.cocobill.BmobContentProvider">
         </provider>
         <provider

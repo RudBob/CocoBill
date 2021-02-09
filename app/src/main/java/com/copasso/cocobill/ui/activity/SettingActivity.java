@@ -1,32 +1,21 @@
 package com.copasso.cocobill.ui.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.copasso.cocobill.R;
 import com.copasso.cocobill.base.BaseActivity;
 import com.copasso.cocobill.model.bean.remote.MyUser;
-import com.copasso.cocobill.model.repository.LocalRepository;
 import com.copasso.cocobill.utils.GlideCacheUtil;
-import com.copasso.cocobill.utils.ImageUtils;
 import com.copasso.cocobill.utils.ProgressUtils;
 import com.copasso.cocobill.utils.SnackbarUtils;
 import com.copasso.cocobill.utils.ToastUtils;
 import com.copasso.cocobill.widget.CommonItemLayout;
 import com.google.android.material.textfield.TextInputLayout;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -40,7 +29,6 @@ import cn.bmob.v3.listener.UpdateListener;
  */
 public class SettingActivity extends BaseActivity implements View.OnClickListener {
 
-    private Toolbar toolbar;
     private CommonItemLayout changeCL;
     private CommonItemLayout forgetCL;
     private CommonItemLayout storeCL;
@@ -65,7 +53,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initWidget() {
         super.initWidget();
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         changeCL = findViewById(R.id.cil_change);
         forgetCL = findViewById(R.id.cil_forget);
         storeCL = findViewById(R.id.cil_store);
@@ -131,7 +119,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 .title("备注")
                 .inputType(InputType.TYPE_CLASS_TEXT)
                 .input("请输入注册邮箱", null, (dialog, input) -> {
-                    if (input.equals("")) {
+                    if ("".equals(input)) {
                         SnackbarUtils.show(mContext, "内容不能为空！");
 
                     } else {
@@ -168,7 +156,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     TextInputLayout til1 = view.findViewById(R.id.change_til_repassword);
                     String passport = til.getEditText().getText().toString();
                     String repaspsort = til.getEditText().getText().toString();
-                    if (passport.equals("") || repaspsort.equals("")) {
+                    if ("".equals(passport) || "".equals(repaspsort)) {
                         ToastUtils.show(mContext, "不能为空！");
                     } else if (passport.equals(repaspsort)) {
                         //修改密码
@@ -201,8 +189,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
      * 更新用户密码
      */
     public void changePw(String password) {
-        if (currentUser == null)
+        if (currentUser == null) {
             return;
+        }
 
         ProgressUtils.show(mContext, "正在修改...");
         currentUser.setPassword(password);
@@ -210,8 +199,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void done(BmobException e) {
                 ProgressUtils.dismiss();
-                if (e != null)
+                if (e != null) {
                     ToastUtils.show(mContext, "修改失败" + e.getMessage());
+                }
             }
         });
     }

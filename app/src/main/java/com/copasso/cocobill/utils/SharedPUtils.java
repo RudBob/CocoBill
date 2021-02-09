@@ -57,8 +57,9 @@ public class SharedPUtils {
      */
     public static String getCurrentTheme(Context context) {
         SharedPreferences sp = context.getSharedPreferences(USER_SETTING, Context.MODE_PRIVATE);
-        if (sp != null)
+        if (sp != null) {
             return sp.getString("theme", "原谅绿");
+        }
         return null;
     }
 
@@ -83,8 +84,9 @@ public class SharedPUtils {
         SharedPreferences sp = context.getSharedPreferences(USER_SETTING, Context.MODE_PRIVATE);
         boolean isFirst= sp.getBoolean("first", true);
         //第一次则修改记录
-        if(isFirst)
+        if(isFirst) {
             sp.edit().putBoolean("first", false).commit();
+        }
         return isFirst;
     }
 }

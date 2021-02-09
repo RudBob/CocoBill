@@ -49,56 +49,31 @@ public class ScrollAwareBehavior extends FloatingActionButton.Behavior {
 
     // Same animation that FloatingActionButton.Behavior uses to hide the FAB when the AppBarLayout exits
     private void animateOut(final FloatingActionButton button) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            ViewCompat.animate(button).scaleX(0.0F).scaleY(0.0F).alpha(0.0F).setInterpolator(INTERPOLATOR).withLayer()
-                    .setListener(new ViewPropertyAnimatorListener() {
-                        public void onAnimationStart(View view) {
-                            ScrollAwareBehavior.this.mIsAnimatingOut = true;
-                        }
+        ViewCompat.animate(button).scaleX(0.0F).scaleY(0.0F).alpha(0.0F).setInterpolator(INTERPOLATOR).withLayer()
+                .setListener(new ViewPropertyAnimatorListener() {
+                    @Override
+                    public void onAnimationStart(View view) {
+                        ScrollAwareBehavior.this.mIsAnimatingOut = true;
+                    }
 
-                        public void onAnimationCancel(View view) {
-                            ScrollAwareBehavior.this.mIsAnimatingOut = false;
-                        }
+                    @Override
+                    public void onAnimationCancel(View view) {
+                        ScrollAwareBehavior.this.mIsAnimatingOut = false;
+                    }
 
-                        public void onAnimationEnd(View view) {
-                            ScrollAwareBehavior.this.mIsAnimatingOut = false;
-                            view.setVisibility(View.INVISIBLE);
-                        }
-                    }).start();
-        } else {
-            Animation anim = AnimationUtils.loadAnimation(button.getContext(), R.anim.fab_out);
-            anim.setInterpolator(INTERPOLATOR);
-            anim.setDuration(200L);
-            anim.setAnimationListener(new Animation.AnimationListener() {
-                public void onAnimationStart(Animation animation) {
-                    ScrollAwareBehavior.this.mIsAnimatingOut = true;
-                }
-
-                public void onAnimationEnd(Animation animation) {
-                    ScrollAwareBehavior.this.mIsAnimatingOut = false;
-                    button.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationRepeat(final Animation animation) {
-                }
-            });
-            button.startAnimation(anim);
-        }
+                    @Override
+                    public void onAnimationEnd(View view) {
+                        ScrollAwareBehavior.this.mIsAnimatingOut = false;
+                        view.setVisibility(View.INVISIBLE);
+                    }
+                }).start();
     }
 
     // Same animation that FloatingActionButton.Behavior uses to show the FAB when the AppBarLayout enters
     private void animateIn(FloatingActionButton button) {
         button.setVisibility(View.VISIBLE);
-        if (Build.VERSION.SDK_INT >= 14) {
-            ViewCompat.animate(button).scaleX(1.0F).scaleY(1.0F).alpha(1.0F)
-                    .setInterpolator(INTERPOLATOR).withLayer().setListener(null)
-                    .start();
-        } else {
-            Animation anim = AnimationUtils.loadAnimation(button.getContext(), R.anim.fab_in);
-            anim.setDuration(200L);
-            anim.setInterpolator(INTERPOLATOR);
-            button.startAnimation(anim);
-        }
+        ViewCompat.animate(button).scaleX(1.0F).scaleY(1.0F).alpha(1.0F)
+                .setInterpolator(INTERPOLATOR).withLayer().setListener(null)
+                .start();
     }
 }

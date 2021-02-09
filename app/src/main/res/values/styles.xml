@@ -52,15 +52,6 @@
         <item name="colorAccent">@color/colorAccentBrown</item>
     </style>
 
-    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">@android:color/white</item>
-    </style>
-
-    <style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Light">
-        <!--这个也正确,用这个吧-->
-        <item name="colorControlNormal">@android:color/white</item>
-    </style>
-
     <!--水平装饰线-->
     <style name="horizontal_decoration_style">
         <item name="android:layout_width">match_parent</item>
@@ -75,17 +66,8 @@
     </style>
 
     <!-- Splash 主题 -->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
     <!--无NoActionBar主题-->
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
     </style>
@@ -103,11 +85,6 @@
         <item name="android:background">@color/colorDivide</item>
     </style>
 
-    <style name="Divide.Default.Margin">
-        <item name="android:layout_marginLeft">@dimen/view_margin</item>
-        <item name="android:layout_marginRight">@dimen/view_margin</item>
-    </style>
-
     <!--按钮样式-->
     <style name="Button">
         <item name="android:layout_width">match_parent</item>
@@ -121,17 +98,6 @@
         <!--<item name="com.github.airsaid.accountbook:backgroundTint">?attr/colorAccent</item>-->
     </style>
 
-    <style name="Button.Default.Margin">
-        <item name="android:layout_margin">@dimen/margin</item>
-    </style>
-
-    <style name="Button.Default.Small">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">35dp</item>
-        <item name="android:textSize">@dimen/text12</item>
-        <!--<item name="com.github.airsaid.accountbook:backgroundTint">?attr/colorAccent</item>-->
-    </style>
-
     <!--文字样式-->
     <style name="Text">
         <item name="android:textSize">@dimen/text14</item>
@@ -139,26 +105,8 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="Text.Black">
-        <item name="android:textColor">@color/textBlack</item>
-    </style>
-    <style name="Text.White">
-        <item name="android:textColor">@color/textWhite</item>
-    </style>
     <style name="Text.Brown">
         <item name="android:textColor">@color/textBrown</item>
-    </style>
-    <style name="Text.Maple">
-        <item name="android:textColor">@color/textMaple</item>
-    </style>
-    <style name="Text.Red">
-        <item name="android:textColor">@color/textRed</item>
-    </style>
-    <style name="Text.Gray">
-        <item name="android:textColor">@color/textGray</item>
-    </style>
-    <style name="Text.Grayish">
-        <item name="android:textColor">@color/textGrayish</item>
     </style>
 
     <!--关于页面样式-->
@@ -196,13 +144,5 @@
     </style>
 
     <!--ToolBar样式-->
-    <style name="Toolbar">
-    </style>
-
-    <style name="Toolbar.TextAppearance"
-        parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/textWhite</item>
-        <item name="android:textSize">@dimen/text20</item>
-    </style>
 
 </resources>

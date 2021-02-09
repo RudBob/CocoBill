@@ -41,7 +41,6 @@ import static com.copasso.cocobill.utils.DateUtils.FORMAT_Y;
 public class MonthListFragment extends BaseMVPFragment<MonthListContract.Presenter>
         implements MonthListContract.View {
 
-    private RecyclerView rvList;
     private FloatingActionButton floatBtn;
 
     int part, index;
@@ -64,8 +63,9 @@ public class MonthListFragment extends BaseMVPFragment<MonthListContract.Present
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void Event(SyncEvent event) {
-        if (event.getState() == 100)
+        if (event.getState() == 100) {
             mPresenter.getMonthList(MyApplication.getCurrentUserId(), setYear, setMonth);
+        }
     }
 
     /*****************************************************************************/
@@ -88,7 +88,7 @@ public class MonthListFragment extends BaseMVPFragment<MonthListContract.Present
     @Override
     protected void initWidget(Bundle savedInstanceState) {
         super.initWidget(savedInstanceState);
-        rvList = getViewById(R.id.rv_list);
+        RecyclerView rvList = getViewById(R.id.rv_list);
         floatBtn = getViewById(R.id.float_btn);
 
         rvList.setItemAnimator(new DefaultItemAnimator() {
@@ -107,9 +107,9 @@ public class MonthListFragment extends BaseMVPFragment<MonthListContract.Present
         super.initClick();
         //fab点击事件
         floatBtn.setOnClickListener(v -> {
-            if (BmobUser.getCurrentUser(MyUser.class) == null)
+            if (BmobUser.getCurrentUser(MyUser.class) == null) {
                 SnackbarUtils.show(mContext, "请先登录");
-            else {
+            } else {
                 Intent intent = new Intent(getContext(), BillAddActivity.class);
                 startActivityForResult(intent, 0);
             }
@@ -209,10 +209,8 @@ public class MonthListFragment extends BaseMVPFragment<MonthListContract.Present
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case 0:
-                    mPresenter.getMonthList(MyApplication.getCurrentUserId(), setYear, setMonth);
-                    break;
+            if (requestCode == 0) {
+                mPresenter.getMonthList(MyApplication.getCurrentUserId(), setYear, setMonth);
             }
         }
     }

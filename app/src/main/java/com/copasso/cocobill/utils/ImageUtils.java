@@ -131,86 +131,87 @@ public class ImageUtils {
      */
     public static Drawable getDrawable(String imgUrl){
         Drawable drawable = null;
-        if(imgUrl.equals("sort_shouxufei.png"))
+        if("sort_shouxufei.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_shouxufei);
-        else if(imgUrl.equals("sort_huankuan.png"))
+        } else if("sort_huankuan.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_huankuan);
-        else if(imgUrl.equals("sort_yongjin.png"))
+        } else if("sort_yongjin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_yongjin);
-        else if(imgUrl.equals("sort_lingqian.png"))
+        } else if("sort_lingqian.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_lingqian);
-        else if(imgUrl.equals("sort_yiban.png"))
+        } else if("sort_yiban.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_yiban);
-        else if(imgUrl.equals("sort_lixi.png"))
+        } else if("sort_lixi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_lixi);
-        else if(imgUrl.equals("sort_gouwu.png"))
+        } else if("sort_gouwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_gouwu);
-        else if(imgUrl.equals("sort_weiyuejin.png"))
+        } else if("sort_weiyuejin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_weiyuejin);
-        else if(imgUrl.equals("sort_zhufang.png"))
+        } else if("sort_zhufang.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_zhufang);
-        else if(imgUrl.equals("sort_bangong.png"))
+        } else if("sort_bangong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_bangong);
-        else if(imgUrl.equals("sort_canyin.png"))
+        } else if("sort_canyin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_canyin);
-        else if(imgUrl.equals("sort_yiliao.png"))
+        } else if("sort_yiliao.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_yiliao);
-        else if(imgUrl.equals("sort_tongxun.png"))
+        } else if("sort_tongxun.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_tongxun);
-        else if(imgUrl.equals("sort_yundong.png"))
+        } else if("sort_yundong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_yundong);
-        else if(imgUrl.equals("sort_yule.png"))
+        } else if("sort_yule.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_yule);
-        else if(imgUrl.equals("sort_jujia.png"))
+        } else if("sort_jujia.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_jujia);
-        else if(imgUrl.equals("sort_chongwu.png"))
+        } else if("sort_chongwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_chongwu);
-        else if(imgUrl.equals("sort_shuma.png"))
+        } else if("sort_shuma.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_shuma);
-        else if(imgUrl.equals("sort_juanzeng.png"))
+        } else if("sort_juanzeng.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_juanzeng);
-        else if(imgUrl.equals("sort_lingshi.png"))
+        } else if("sort_lingshi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_lingshi);
-        else if(imgUrl.equals("sort_jiangjin.png"))
+        } else if("sort_jiangjin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_jiangjin);
-        else if(imgUrl.equals("sort_haizi.png"))
+        } else if("sort_haizi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_haizi);
-        else if(imgUrl.equals("sort_zhangbei.png"))
+        } else if("sort_zhangbei.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_zhangbei);
-        else if(imgUrl.equals("sort_liwu.png"))
+        } else if("sort_liwu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_liwu);
-        else if(imgUrl.equals("sort_xuexi.png"))
+        } else if("sort_xuexi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_xuexi);
-        else if(imgUrl.equals("sort_shuiguo.png"))
+        } else if("sort_shuiguo.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_shuiguo);
-        else if(imgUrl.equals("sort_meirong.png"))
+        } else if("sort_meirong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_meirong);
-        else if(imgUrl.equals("sort_weixiu.png"))
+        } else if("sort_weixiu.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_weixiu);
-        else if(imgUrl.equals("sort_lvxing.png"))
+        } else if("sort_lvxing.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_lvxing);
-        else if(imgUrl.equals("sort_jiaotong.png"))
+        } else if("sort_jiaotong.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_jiaotong);
-        else if(imgUrl.equals("sort_jiushui.png"))
+        } else if("sort_jiushui.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_jiushui);
-        else if(imgUrl.equals("sort_lijin.png"))
+        } else if("sort_lijin.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_lijin);
-        else if(imgUrl.equals("sort_fanxian.png"))
+        } else if("sort_fanxian.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_fanxian);
-        else if(imgUrl.equals("sort_jianzhi.png"))
+        } else if("sort_jianzhi.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_jianzhi);
-        else if(imgUrl.equals("sort_tianjiade.png"))
+        } else if("sort_tianjiade.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_tianjiade);
-        else if(imgUrl.equals("sort_tianjia.png"))
+        } else if("sort_tianjia.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.sort_tianjia);
-        else if(imgUrl.equals("card_cash.png"))
+        } else if("card_cash.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.card_cash);
-        else if(imgUrl.equals("card_account.png"))
+        } else if("card_account.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.card_account);
-        else if(imgUrl.equals("card_account.png"))
+        } else if("card_account.png".equals(imgUrl)) {
             drawable = MyApplication.application.getResources().getDrawable(R.mipmap.card_account);
-        else
+        } else {
             drawable=null;
+        }
 
         return drawable;
     }

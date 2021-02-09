@@ -46,8 +46,9 @@ public class BillSortAdapter extends RecyclerView.Adapter<BillSortAdapter.MyItem
 
     @Override
     public int getItemCount() {
-        if (mData == null)
+        if (mData == null) {
             return 0;
+        }
         return mData.size();
     }
 

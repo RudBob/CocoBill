@@ -34,5 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:visibility="gone"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:contentDescription="TODO" />
 </LinearLayout>

@@ -77,14 +77,16 @@ public class LandActivity extends BaseMVPActivity<LandContract.Presenter>
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.login_btn_login:  //button
+            //button
+            case R.id.login_btn_login:
                 if (isLogin) {
                     login();  //登陆
                 } else {
                     sign();  //注册
                 }
                 break;
-            case R.id.login_tv_sign:  //sign
+            //sign
+            case R.id.login_tv_sign:
                 if (isLogin) {
                     //置换注册界面
                     signTV.setText("Login");
@@ -100,7 +102,8 @@ public class LandActivity extends BaseMVPActivity<LandContract.Presenter>
                 }
                 isLogin = !isLogin;
                 break;
-            case R.id.login_tv_forget:  //忘记密码
+            //忘记密码
+            case R.id.login_tv_forget:
                 break;
             default:
                 break;

@@ -1,8 +1,5 @@
 package com.copasso.cocobill.presenter;
 
-
-import android.util.Log;
-
 import com.copasso.cocobill.base.RxPresenter;
 import com.copasso.cocobill.model.bean.remote.MyUser;
 import com.copasso.cocobill.presenter.contract.LandContract;
@@ -14,6 +11,7 @@ import cn.bmob.v3.listener.SaveListener;
 /**
  * Created by Zhouas666 on 2019-01-08
  * Github: https://github.com/zas023
+ * @author ry
  */
 public class LandPresenter extends RxPresenter<LandContract.View> implements LandContract.Presenter{
 
@@ -24,10 +22,11 @@ public class LandPresenter extends RxPresenter<LandContract.View> implements Lan
         MyUser.loginByAccount(username, password, new LogInListener<MyUser>() {
             @Override
             public void done(MyUser myUser, BmobException e) {
-                if(e==null)
+                if(e==null) {
                     mView.landSuccess(myUser);
-                else
+                } else {
                     mView.onFailure(e);
+                }
             }
         });
     }
@@ -42,10 +41,11 @@ public class LandPresenter extends RxPresenter<LandContract.View> implements Lan
         myUser.signUp(new SaveListener<MyUser>() {
             @Override
             public void done(MyUser myUser, BmobException e) {
-                if(e==null)
+                if(e==null) {
                     mView.landSuccess(myUser);
-                else
+                } else {
                     mView.onFailure(e);
+                }
             }
         });
     }

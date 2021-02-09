@@ -47,8 +47,7 @@ public class FormatUtils {
     public static String MyDecimalFormat(String pattern, double value) {
         DecimalFormat myFormat = new DecimalFormat();
         myFormat.applyPattern(pattern);
-        String str = myFormat.format(value);
-        return str;
+        return myFormat.format(value);
     }
 
     public static String getMoneyStr(double money) {

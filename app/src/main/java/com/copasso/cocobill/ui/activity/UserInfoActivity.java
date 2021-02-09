@@ -1,7 +1,6 @@
 package com.copasso.cocobill.ui.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -13,7 +12,6 @@ import android.provider.MediaStore;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -54,7 +52,6 @@ import cn.bmob.v3.listener.UploadFileListener;
 public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter>
         implements UserInfoContract.View, View.OnClickListener {
 
-    private Toolbar toolbar;
     private RelativeLayout iconRL;
     private ImageView iconIv;
     private CommonItemLayout usernameCL;
@@ -85,7 +82,7 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
     @Override
     protected void initWidget() {
         super.initWidget();
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         iconRL = findViewById(R.id.rlt_update_icon);
         iconIv = findViewById(R.id.img_icon);
         usernameCL = findViewById(R.id.cil_username);
@@ -218,7 +215,7 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
                 .inputRangeRes(0, 200, R.color.textRed)
                 .input("请输入电话号码", phone, (dialog, input) -> {
                     String inputStr=input.toString();
-                    if (inputStr.equals("")) {
+                    if ("".equals(inputStr)) {
                         ToastUtils.show(mContext,"内容不能为空！" + input);
                     } else {
                         if (StringUtils.checkPhoneNumber(inputStr)) {
@@ -246,7 +243,7 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
                 .inputRangeRes(0, 200, R.color.textRed)
                 .input("请输入邮箱地址", email, (dialog, input) -> {
                     String inputStr=input.toString();
-                    if (inputStr.equals("")) {
+                    if ("".equals(inputStr)) {
                         ToastUtils.show(mContext,"内容不能为空！" + input);
                     } else {
                         if (StringUtils.checkEmail(inputStr)) {
@@ -267,8 +264,9 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
      * 更新用户数据
      */
     public void doUpdate() {
-        if (currentUser == null)
+        if (currentUser == null) {
             return;
+        }
         ProgressUtils.show(UserInfoActivity.this, "正在修改...");
         mPresenter.updateUser(currentUser);
 
@@ -354,7 +352,7 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
         // 可以在这里把Bitmap转换成file，然后得到file的url，做文件上传操作
         // 注意这里得到的图片已经是圆形图片了
         // bitmap是没有做个圆形处理的，但已经被裁剪了
-        String imagename = currentUser.getObjectId() + "_" + String.valueOf(System.currentTimeMillis());
+        String imagename = currentUser.getObjectId() + "_" + System.currentTimeMillis();
         String imagePath = ImageUtils.savePhoto(bitmap, Environment
                 .getExternalStorageDirectory().getAbsolutePath(), imagename + ".png");
         if (imagePath != null) {
@@ -368,8 +366,9 @@ public class UserInfoActivity extends BaseMVPActivity<UserInfoContract.Presenter
                         newUser.update(currentUser.getObjectId(),new UpdateListener() {
                             @Override
                             public void done(BmobException e) {
-                                if (e!=null)
+                                if (e!=null) {
                                     Log.i(TAG,e.getMessage());
+                                }
                             }
                         });
                     }else{

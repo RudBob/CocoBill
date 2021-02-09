@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by zhouas666 on 2017/10/27.
@@ -39,7 +40,7 @@ public class HttpUtils {
             connection.setRequestMethod("GET");
             connection.connect();
             InputStream is = connection.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String strRead = null;
             while ((strRead = reader.readLine()) != null) {
                 sbf.append(strRead);

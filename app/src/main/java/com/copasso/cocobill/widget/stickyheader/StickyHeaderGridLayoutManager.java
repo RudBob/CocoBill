@@ -24,7 +24,7 @@ import static com.copasso.cocobill.widget.stickyheader.StickyHeaderGridAdapter.T
  * Copyright (c) 2017 Sergej Kravcenko
  */
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"WeakerAccess"})
 public class StickyHeaderGridLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
    public static final String TAG = "StickyLayoutManager";
 
@@ -48,7 +48,7 @@ public class StickyHeaderGridLayoutManager extends RecyclerView.LayoutManager im
    private View mStickyHeaderView;
    private HeaderState mStickyHeadeState;
 
-   private View mFillViewSet[];
+   private View[] mFillViewSet;
 
    private SavedState mPendingSavedState;
    private int mPendingScrollPosition = NO_POSITION;

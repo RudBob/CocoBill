@@ -278,12 +278,14 @@ public class OkHttpUtils {
     public void cancel(Context context) {
         if(client != null) {
             for(Call call : client.dispatcher().queuedCalls()) {
-                if(call.request().tag().equals(context))
+                if(call.request().tag().equals(context)) {
                     call.cancel();
+                }
             }
             for(Call call : client.dispatcher().runningCalls()) {
-                if(call.request().tag().equals(context))
+                if(call.request().tag().equals(context)) {
                     call.cancel();
+                }
             }
         }
     }
@@ -309,12 +311,16 @@ public class OkHttpUtils {
             return file;
         } finally {
             try {
-                if (is != null) is.close();
-            } catch (IOException e) {
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException ignored) {
             }
             try {
-                if (fos != null) fos.close();
-            } catch (IOException e) {
+                if (fos != null) {
+                    fos.close();
+                }
+            } catch (IOException ignored) {
             }
         }
     }

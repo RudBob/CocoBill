@@ -7,7 +7,8 @@
             android:id="@+id/item_tb_type_img"
             android:layout_width="41dp"
             android:layout_gravity="center"
-            android:layout_height="41dp"/>
+            android:layout_height="41dp"
+        android:contentDescription="TODO" />
     <TextView
             android:id="@+id/item_tb_type_tv"
             android:textColor="#333333"

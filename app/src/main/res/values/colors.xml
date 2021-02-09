@@ -39,18 +39,13 @@
     <color name="colorAccentBrown">#88564D</color>
 
     <color name="background">#f7f7f7</color>
-    <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
     <color name="text_black3">#333333</color>
     <color name="text_black6">#666666</color>
-    <color name="text_black9">#999999</color>
     <color name="text_red">#FF5050</color>
 
-    <color name="red">#ff0000</color>
-
-    <color name="green">#008000</color> <!-- 绿色 -->
-    <color name="darkgreen">#006400</color> <!-- 暗绿色 -->
+    <!-- 绿色 -->
+    <!-- 暗绿色 -->
 
     <!--aboutActivity字体颜色-->
     <color name="material_grey_100">#fff5f5f5</color>
@@ -62,28 +57,14 @@
     <color name="material_grey_900">#ff212121</color>
 
     <color name="colorDivide">#F9F9F9</color>
-    <color name="colorTabSelect">#FFE0AA</color>
-    <color name="colorMainDateBg">#F7F7F7</color>
-    <color name="colorControlNormal">#CCCCCC</color>
     <!--页面默认背景色-->
     <color name="colorBackground">#F9F9F9</color>
     <!--文字颜色-->
     <color name="textWhite">#FFFFFF</color>
-    <color name="textBlack">#333333</color>
     <color name="textBrown">#6A4A57</color>
-    <color name="textPink">#FE88A8</color>
     <color name="textMaple">#977F8A</color>
-    <color name="textLightBlue">#96D6EF</color>
     <color name="textRed">#ED5543</color>
-    <color name="textGrayish">#999999</color>
-    <color name="textGray">#666666</color>
-
-    <color name="gray">#999999</color>
-    <color name="grayish">#EFEFEF</color>
 
     <!--tab layout 文字颜色-->
-    <color name="tabNormalTextColor">#8CFFFFFF</color>
-    <color name="tabSelectedTextColor">#FFFFFF</color>
-    <color name="tabIndicatorColor">#FFFFFF</color>
 
 </resources>

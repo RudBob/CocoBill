@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class BookNoteAdapter extends RecyclerView.Adapter<BookNoteAdapter.ViewHolder> {
 
-    private BillAddActivity mContext;
     private LayoutInflater mInflater;
     private List<BillingSort> mDatas;
 
@@ -31,15 +30,15 @@ public class BookNoteAdapter extends RecyclerView.Adapter<BookNoteAdapter.ViewHo
     }
 
     public BookNoteAdapter(BillAddActivity context, List<BillingSort> datas) {
-        this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
         this.mDatas = datas;
 
     }
 
     public void setOnBookNoteClickListener(OnBookNoteClickListener listener) {
-        if (onBookNoteClickListener == null)
+        if (onBookNoteClickListener == null) {
             this.onBookNoteClickListener = listener;
+        }
     }
 
     @Override

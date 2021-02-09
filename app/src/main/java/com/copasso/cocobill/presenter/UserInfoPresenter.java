@@ -22,10 +22,11 @@ public class UserInfoPresenter extends RxPresenter<UserInfoContract.View>
         user.update(user.getObjectId(), new UpdateListener() {
             @Override
             public void done(BmobException e) {
-                if (e == null)
+                if (e == null) {
                     mView.onSuccess();
-                else
+                } else {
                     mView.onFailure(e);
+                }
             }
         });
     }

@@ -1,7 +1,5 @@
 package com.copasso.cocobill.model.bean.local;
 
-import androidx.annotation.Keep;
-
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;

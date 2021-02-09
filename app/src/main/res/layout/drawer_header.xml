@@ -9,8 +9,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:id="@+id/drawer_header"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
         android:orientation="vertical"
         android:gravity="bottom">
 
@@ -19,7 +18,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             app:srcCompat="@mipmap/ic_def_icon"
-            android:id="@+id/drawer_iv"/>
+            android:id="@+id/drawer_iv"
+        android:contentDescription="TODO" />
 
     <TextView
             android:id="@+id/drawer_tv_name"

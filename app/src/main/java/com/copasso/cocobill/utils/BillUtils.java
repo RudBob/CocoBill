@@ -34,22 +34,25 @@ public class BillUtils {
         for (int i = 0; i < list.size(); i++) {
             BBill bBill = list.get(i);
             //计算总收入支出
-            if (bBill.isIncome())
+            if (bBill.isIncome()) {
                 t_income += bBill.getCost();
-            else
+            } else {
                 t_outcome += bBill.getCost();
+            }
 
             //判断后一个账单是否于前者为同一天
             if (i == 0 || preDay.equals(DateUtils.getDay(bBill.getCrdate()))) {
 
-                if (bBill.isIncome())
+                if (bBill.isIncome()) {
                     income += bBill.getCost();
-                else
+                } else {
                     outcome += bBill.getCost();
+                }
                 beanList.add(bBill);
 
-                if (i==0)
+                if (i==0) {
                     preDay = DateUtils.getDay(bBill.getCrdate());
+                }
             } else {
                 //局部变量防止引用冲突
                 List<BBill> tmpList = new ArrayList<>();
@@ -66,10 +69,11 @@ public class BillUtils {
                 outcome = 0;
 
                 //添加数据
-                if (bBill.isIncome())
+                if (bBill.isIncome()) {
                     income += bBill.getCost();
-                else
+                } else {
                     outcome += bBill.getCost();
+                }
                 beanList.add(bBill);
                 preDay = DateUtils.getDay(bBill.getCrdate());
             }
@@ -110,8 +114,11 @@ public class BillUtils {
         for (int i = 0; i < list.size(); i++) {
             BBill bBill = list.get(i);
             //计算总收入支出
-            if (bBill.isIncome()) t_income += bBill.getCost();
-            else t_outcome += bBill.getCost();
+            if (bBill.isIncome()) {
+                t_income += bBill.getCost();
+            } else {
+                t_outcome += bBill.getCost();
+            }
 
             //账单分类
             String sort = bBill.getSortName();
@@ -122,10 +129,11 @@ public class BillUtils {
                 } else {
                     listBill = new ArrayList<>();
                 }
-                if (moneyIn.containsKey(sort))
+                if (moneyIn.containsKey(sort)) {
                     moneyIn.put(sort, moneyIn.get(sort) + bBill.getCost());
-                else
+                } else {
                     moneyIn.put(sort, bBill.getCost());
+                }
                 listBill.add(bBill);
                 mapIn.put(sort, listBill);
             } else {
@@ -134,10 +142,11 @@ public class BillUtils {
                 } else {
                     listBill = new ArrayList<>();
                 }
-                if (moneyOut.containsKey(sort))
+                if (moneyOut.containsKey(sort)) {
                     moneyOut.put(sort, moneyOut.get(sort) + bBill.getCost());
-                else
+                } else {
                     moneyOut.put(sort, bBill.getCost());
+                }
                 listBill.add(bBill);
                 mapOut.put(sort, listBill);
             }
@@ -189,8 +198,11 @@ public class BillUtils {
         for (int i = 0; i < list.size(); i++) {
             BBill bBill = list.get(i);
             //计算总收入支出
-            if (bBill.isIncome()) t_income += bBill.getCost();
-            else t_outcome += bBill.getCost();
+            if (bBill.isIncome()) {
+                t_income += bBill.getCost();
+            } else {
+                t_outcome += bBill.getCost();
+            }
 
             String pay = bBill.getPayName();
 
@@ -225,10 +237,12 @@ public class BillUtils {
             payTypeListBean.setBills(entry.getValue());
             //先判断当前支付方式是否有输入或支出
             //因为有可能只有支出或收入
-            if (mapMoneyIn.containsKey(entry.getKey()))
+            if (mapMoneyIn.containsKey(entry.getKey())) {
                 payTypeListBean.setIncome(mapMoneyIn.get(entry.getKey()));
-            if (mapMoneyOut.containsKey(entry.getKey()))
+            }
+            if (mapMoneyOut.containsKey(entry.getKey())) {
                 payTypeListBean.setOutcome(mapMoneyOut.get(entry.getKey()));
+            }
             payTypeListBean.setPayImg(entry.getValue().get(0).getPayImg());
             payTypeListBean.setPayName(entry.getValue().get(0).getPayName());
             payTypeListBeans.add(payTypeListBean);

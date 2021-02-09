@@ -120,7 +120,7 @@ public class BSortDao extends AbstractDao<BillingSort, Long> {
 
     @Override
     public BillingSort readEntity(Cursor cursor, int offset) {
-        BillingSort entity = new BillingSort( //
+        return new BillingSort( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // sortName
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // sortImg
@@ -128,7 +128,6 @@ public class BSortDao extends AbstractDao<BillingSort, Long> {
             cursor.getFloat(offset + 4), // cost
             cursor.isNull(offset + 5) ? null : cursor.getShort(offset + 5) != 0 // income
         );
-        return entity;
     }
      
     @Override

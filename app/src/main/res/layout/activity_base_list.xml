@@ -13,7 +13,6 @@
         android:gravity="center_vertical">
 
         <RelativeLayout
-            android:id="@+id/back_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true">
@@ -25,10 +24,10 @@
                 android:layout_marginLeft="15dp"
                 android:onClick="onClick"
                 android:paddingRight="10dp"
-                android:src="@mipmap/ic_back" />
+                android:src="@mipmap/ic_back"
+                android:contentDescription="TODO" />
 
             <TextView
-                android:id="@+id/mine_frag_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -43,7 +42,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/type_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
@@ -77,7 +75,8 @@
             android:layout_marginRight="15dp"
             android:paddingLeft="10dp"
             android:onClick="onClick"
-            android:src="@mipmap/tallybook_note" />
+            android:src="@mipmap/tallybook_note"
+            android:contentDescription="TODO" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

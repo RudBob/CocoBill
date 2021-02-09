@@ -67,7 +67,7 @@ public class GlideCacheUtil {
         clearImageDiskCache(context);
         clearImageMemoryCache(context);
         String ImageExternalCatchDir = context.getExternalCacheDir() + ExternalCacheDiskCacheFactory.DEFAULT_DISK_CACHE_DIR;
-        deleteFolderFile(ImageExternalCatchDir, true);
+        deleteFolderFile(ImageExternalCatchDir);
     }
 
     /**
@@ -110,21 +110,20 @@ public class GlideCacheUtil {
 
     /**
      * 删除指定目录下的文件，这里用于缓存的删除
+     *  @param filePath       filePath
      *
-     * @param filePath       filePath
-     * @param deleteThisPath deleteThisPath
      */
-    private void deleteFolderFile(String filePath, boolean deleteThisPath) {
+    private void deleteFolderFile(String filePath) {
         if (!TextUtils.isEmpty(filePath)) {
             try {
                 File file = new File(filePath);
                 if (file.isDirectory()) {
-                    File files[] = file.listFiles();
+                    File[] files = file.listFiles();
                     for (File file1 : files) {
-                        deleteFolderFile(file1.getAbsolutePath(), true);
+                        deleteFolderFile(file1.getAbsolutePath());
                     }
                 }
-                if (deleteThisPath) {
+                if (true) {
                     if (!file.isDirectory()) {
                         file.delete();
                     } else {

@@ -163,8 +163,9 @@ public class BillSortActivity extends BaseMVPActivity<BillNoteContract.Presenter
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             setResult(RESULT_OK, new Intent());
+        }
         return super.onKeyDown(keyCode, event);
     }
 
@@ -199,7 +200,7 @@ public class BillSortActivity extends BaseMVPActivity<BillNoteContract.Presenter
                 .inputType(InputType.TYPE_CLASS_TEXT)
                 .inputRangeRes(0, 200, R.color.textRed)
                 .input("分类名称", null, (dialog, input) -> {
-                    if (input.equals("")) {
+                    if ("".equals(input)) {
                         ToastUtils.show(mContext,"内容不能为空！");
                     } else {
                         BillingSort sort = new BillingSort(null, input.toString(), "sort_tianjiade.png",mDatas.size(),0, !isOutcome);
@@ -216,8 +217,9 @@ public class BillSortActivity extends BaseMVPActivity<BillNoteContract.Presenter
      */
     private void saveBSorts() {
         //更新账单分类排序
-        for (int i = 0; i < mDatas.size(); i++)
+        for (int i = 0; i < mDatas.size(); i++) {
             mDatas.get(i).setPriority(i);
+        }
         mPresenter.updateBBsorts(mDatas);
     }
 

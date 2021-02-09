@@ -20,7 +20,7 @@ public class RegexUtils {
     /**
      * 匹配手机号码的正则表达式，只校验 1 开头并且是 11 位数的。
      */
-    public static final String PHONE_NUMBER_REGEX = "^1(3|4|5|7|8)[0-9]\\d{8}$";
+    public static final String PHONE_NUMBER_REGEX = "^1([34578])[0-9]\\d{8}$";
 
     /**
      * 匹配邮箱的正则表达式
@@ -51,12 +51,12 @@ public class RegexUtils {
     /**
      * 匹配URL的正则表达式
      */
-    public static final String URL = "^(([hH][tT]{2}[pP][sS]?)|([fF][tT][pP]))\\:\\/\\/[wW]{3}\\.[\\w-]+\\.\\w{2,4}(\\/.*)?$";
+    public static final String URL = "^(([hH][tT]{2}[pP][sS]?)|([fF][tT][pP]))://[wW]{3}\\.[\\w-]+\\.\\w{2,4}(/.*)?$";
 
     /**
      * 匹配网址的正则表达式
      */
-    public static final String LINK = "^(http://|https://)?((?:[A-Za-z0-9]+-[A-Za-z0-9]+|[A-Za-z0-9]+)\\.)+([A-Za-z]+)[/\\?\\:]?.*$";
+    public static final String LINK = "^(http://|https://)?((?:[A-Za-z0-9]+-[A-Za-z0-9]+|[A-Za-z0-9]+)\\.)+([A-Za-z]+)[/?:]?.*$";
 
     /**
      * 匹配密码的正则表达式(不能以数字开头,6-15位,并且是包含数字和字母的组合)
