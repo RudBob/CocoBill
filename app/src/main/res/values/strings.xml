@@ -74,6 +74,11 @@
     <string name="load_switch">正在切换中&#8230;</string>
     <string name="load_login">正在登录中&#8230;</string>
     <string name="load_sign">正在注册中&#8230;</string>
+    <string name="about_a">关于</string>
+    <string name="theme">主题</string>
+    <string name="sync">同步</string>
+    <string name="billing_book">账本</string>
+    <string name="statisic">统计</string>
 
 </resources>
 

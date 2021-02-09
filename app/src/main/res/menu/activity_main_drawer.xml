@@ -5,30 +5,30 @@
             <item
                 android:id="@+id/nav_static"
                 android:icon="@mipmap/ic_drawer_assignment_grey600_36dp"
-                android:title="统计" />
+                android:title="@string/statisic" />
             <item
                 android:id="@+id/nav_total"
                 android:icon="@mipmap/ic_drawer_guide"
-                android:title="账本" />
+                android:title="@string/billing_book" />
             <item
                 android:id="@+id/nav_sync"
                 android:icon="@mipmap/ic_drawer_share"
-                android:title="同步" />
+                android:title="@string/sync" />
     </group>
 
     <group android:id="@+id/group_setting">
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@mipmap/ic_drawer_settings"
-                android:title="设置" />
+                android:title="@string/setting" />
             <item
                 android:id="@+id/nav_theme"
                 android:icon="@mipmap/ic_color_lens_black_24dp"
-                android:title="主题" />
+                android:title="@string/theme" />
             <item
                 android:id="@+id/nav_about"
                 android:icon="@mipmap/ic_drawer_about"
-                android:title="关于" />
+                android:title="@string/about_a" />
     </group>
 
     <item android:title="">
