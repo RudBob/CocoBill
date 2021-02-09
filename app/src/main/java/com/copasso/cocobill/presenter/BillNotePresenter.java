@@ -1,7 +1,7 @@
 package com.copasso.cocobill.presenter;
 
 import com.copasso.cocobill.base.RxPresenter;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.repository.LocalRepository;
 import com.copasso.cocobill.presenter.contract.BillNoteContract;
 
@@ -23,14 +23,14 @@ public class BillNotePresenter extends RxPresenter<BillNoteContract.View> implem
     }
 
     @Override
-    public void updateBBsorts(List<BSort> items) {
+    public void updateBBsorts(List<BillingSort> items) {
         LocalRepository.getInstance().updateBSoers(items);
         mView.onSuccess();
     }
 
     @Override
-    public void addBSort(BSort bSort) {
-        LocalRepository.getInstance().saveBSort(bSort);
+    public void addBSort(BillingSort billingSort) {
+        LocalRepository.getInstance().saveBSort(billingSort);
         mView.onSuccess();
     }
 

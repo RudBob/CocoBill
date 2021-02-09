@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.copasso.cocobill.R;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.ui.activity.BillAddActivity;
 import com.copasso.cocobill.utils.ImageUtils;
 
@@ -22,15 +22,15 @@ public class BookNoteAdapter extends RecyclerView.Adapter<BookNoteAdapter.ViewHo
 
     private BillAddActivity mContext;
     private LayoutInflater mInflater;
-    private List<BSort> mDatas;
+    private List<BillingSort> mDatas;
 
     private OnBookNoteClickListener onBookNoteClickListener;
 
-    public void setmDatas(List<BSort> mDatas) {
+    public void setmDatas(List<BillingSort> mDatas) {
         this.mDatas = mDatas;
     }
 
-    public BookNoteAdapter(BillAddActivity context, List<BSort> datas) {
+    public BookNoteAdapter(BillAddActivity context, List<BillingSort> datas) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
         this.mDatas = datas;

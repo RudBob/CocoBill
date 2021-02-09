@@ -1,14 +1,17 @@
 package com.copasso.cocobill.model.bean.local;
 
+import androidx.annotation.Keep;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 /**
  * 账单分类bean
+ * @author ry
  */
 @Entity
-public class BSort {
+public class BillingSort {
 
     @Id
     private Long id;
@@ -20,19 +23,19 @@ public class BSort {
     private float cost;
     private Boolean income;
 
-    @Generated(hash = 2092983496)
-    public BSort() {
-    }
-
-    @Generated(hash = 442114462)
-    public BSort(Long id, String sortName, String sortImg, int priority, float cost,
-            Boolean income) {
+    @Generated(hash = 583176612)
+    public BillingSort(Long id, String sortName, String sortImg, int priority,
+            float cost, Boolean income) {
         this.id = id;
         this.sortName = sortName;
         this.sortImg = sortImg;
         this.priority = priority;
         this.cost = cost;
         this.income = income;
+    }
+
+    @Generated(hash = 420245818)
+    public BillingSort() {
     }
 
     public String getSortName() {

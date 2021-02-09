@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.copasso.cocobill.R;
-import com.copasso.cocobill.common.Constants;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.utils.ImageUtils;
 
 import java.util.List;
@@ -23,14 +21,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class BillSortAdapter extends RecyclerView.Adapter<BillSortAdapter.MyItemViewHolder> {
 
     private Context mContext;
-    private List<BSort> mData;
+    private List<BillingSort> mData;
 
-    public BillSortAdapter(Context mContext, List<BSort> mData) {
+    public BillSortAdapter(Context mContext, List<BillingSort> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
 
-    public void setItems(List<BSort> items){
+    public void setItems(List<BillingSort> items){
         this.mData=items;
     }
 

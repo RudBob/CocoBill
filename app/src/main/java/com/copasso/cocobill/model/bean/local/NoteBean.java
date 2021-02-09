@@ -4,25 +4,28 @@ import com.copasso.cocobill.model.bean.BaseBean;
 
 import java.util.List;
 
+/**
+ * @author ry
+ */
 public class NoteBean extends BaseBean {
 
-    private List<BSort> outSortlis;
-    private List<BSort> inSortlis;
+    private List<BillingSort> outSortlis;
+    private List<BillingSort> inSortlis;
     private List<BPay> payinfo;
 
-    public List<BSort> getOutSortlis() {
+    public List<BillingSort> getOutSortlis() {
         return outSortlis;
     }
 
-    public void setOutSortlis(List<BSort> outSortlis) {
+    public void setOutSortlis(List<BillingSort> outSortlis) {
         this.outSortlis = outSortlis;
     }
 
-    public List<BSort> getInSortlis() {
+    public List<BillingSort> getInSortlis() {
         return inSortlis;
     }
 
-    public void setInSortlis(List<BSort> inSortlis) {
+    public void setInSortlis(List<BillingSort> inSortlis) {
         this.inSortlis = inSortlis;
     }
 

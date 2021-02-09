@@ -3,7 +3,6 @@ package com.copasso.cocobill.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.copasso.cocobill.R;
 import com.copasso.cocobill.base.BaseMVPActivity;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
 import com.copasso.cocobill.presenter.BillNotePresenter;
 import com.copasso.cocobill.presenter.contract.BillNoteContract;
@@ -44,7 +43,7 @@ public class BillSortActivity extends BaseMVPActivity<BillNoteContract.Presenter
     private BillSortAdapter billSortAdapter;
 
     private NoteBean noteBean;
-    private List<BSort> mDatas;
+    private List<BillingSort> mDatas;
 
     /**************************************************************************/
     @Override
@@ -203,7 +202,7 @@ public class BillSortActivity extends BaseMVPActivity<BillNoteContract.Presenter
                     if (input.equals("")) {
                         ToastUtils.show(mContext,"内容不能为空！");
                     } else {
-                        BSort sort = new BSort(null, input.toString(), "sort_tianjiade.png",mDatas.size(),0, !isOutcome);
+                        BillingSort sort = new BillingSort(null, input.toString(), "sort_tianjiade.png",mDatas.size(),0, !isOutcome);
                         mPresenter.addBSort(sort);
                         mDatas.add(sort);
                     }

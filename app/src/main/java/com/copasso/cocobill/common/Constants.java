@@ -34,7 +34,9 @@ public class Constants {
 
     public static String EXTRA_IS_UPDATE_THEME = "com.copasso.cocobill.IS_UPDATE_THEME";
 
-    //默认note(账单分类和支付方式)
+    /**
+     * 默认note(账单分类和支付方式)
+     */
     public static String BILL_NOTE = "{\"status\":100,\"message\":\"处理成功！\"," +
             "\"outSortlis\":[" +
             "{\"id\":1,\"uid\":0,\"sortName\":\"还款\",\"sortImg\":\"sort_huankuan.png\",\"priority\":0,\"income\":false}," +

@@ -19,7 +19,7 @@ import com.copasso.cocobill.MyApplication;
 import com.copasso.cocobill.R;
 import com.copasso.cocobill.base.BaseMVPActivity;
 import com.copasso.cocobill.model.bean.local.BBill;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
 import com.copasso.cocobill.presenter.contract.BillContract;
 import com.copasso.cocobill.presenter.BillPresenter;
@@ -77,13 +77,13 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
     protected int page;
     protected boolean isTotalPage;
     protected int sortPage = -1;
-    protected List<BSort> mDatas;
-    protected List<BSort> tempList;
+    protected List<BillingSort> mDatas;
+    protected List<BillingSort> tempList;
     protected List<View> viewList;
     protected ImageView[] icons;
 
     //记录上一次点击后的分类
-    public BSort lastBean;
+    public BillingSort lastBean;
 
     public boolean isOutcome = true;
     public boolean isEdit = false;
@@ -458,10 +458,10 @@ public class BillAddActivity extends BaseMVPActivity<BillContract.Presenter>
         viewList = new ArrayList<>();// 创建一个View的集合对象
         //声明一个局部变量来存储分类集合
         //否则在收入支出类型切换时末尾一直添加选项
-        List<BSort> tempData = new ArrayList<>();
+        List<BillingSort> tempData = new ArrayList<>();
         tempData.addAll(mDatas);
         //末尾加上添加选项
-        tempData.add(new BSort(null, "添加", "sort_tianjia.png", 0, 0, null));
+        tempData.add(new BillingSort(null, "添加", "sort_tianjia.png", 0, 0, null));
         if (tempData.size() % 15 == 0)
             isTotalPage = true;
         page = (int) Math.ceil(tempData.size() * 1.0 / 15);

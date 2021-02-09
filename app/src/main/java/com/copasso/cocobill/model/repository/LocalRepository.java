@@ -2,7 +2,7 @@ package com.copasso.cocobill.model.repository;
 
 import com.copasso.cocobill.model.bean.local.BBill;
 import com.copasso.cocobill.model.bean.local.BPay;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
 import com.copasso.cocobill.model.gen.BBillDao;
 import com.copasso.cocobill.model.gen.BSortDao;
@@ -67,8 +67,8 @@ public class LocalRepository {
         return mSession.getBPayDao().insert(pay);
     }
 
-    public Long saveBSort(BSort sort) {
-        return mSession.getBSortDao().insert(sort);
+    public Long saveBSort(BillingSort sort) {
+        return mSession.getBillingSortDao().insert(sort);
     }
 
     /**
@@ -86,8 +86,8 @@ public class LocalRepository {
      *
      * @param sorts
      */
-    public void saveBsorts(List<BSort> sorts) {
-        for (BSort sort : sorts)
+    public void saveBsorts(List<BillingSort> sorts) {
+        for (BillingSort sort : sorts)
             saveBSort(sort);
     }
 
@@ -120,15 +120,15 @@ public class LocalRepository {
         return queryListToRx(queryBuilder);
     }
 
-    public Observable<List<BSort>> getBSort(boolean income) {
-        QueryBuilder<BSort> queryBuilder = mSession.getBSortDao()
+    public Observable<List<BillingSort>> getBSort(boolean income) {
+        QueryBuilder<BillingSort> queryBuilder = mSession.getBillingSortDao()
                 .queryBuilder()
                 .where(BSortDao.Properties.Income.eq(income));
         return queryListToRx(queryBuilder);
     }
 
-    public Observable<List<BSort>> getBSort() {
-        QueryBuilder<BSort> queryBuilder = mSession.getBSortDao()
+    public Observable<List<BillingSort>> getBSort() {
+        QueryBuilder<BillingSort> queryBuilder = mSession.getBillingSortDao()
                 .queryBuilder();
         return queryListToRx(queryBuilder);
     }
@@ -142,9 +142,9 @@ public class LocalRepository {
     public NoteBean getBillNote() {
         NoteBean note = new NoteBean();
         note.setPayinfo(mSession.getBPayDao().queryBuilder().list());
-        note.setInSortlis(mSession.getBSortDao().queryBuilder()
+        note.setInSortlis(mSession.getBillingSortDao().queryBuilder()
                 .where(BSortDao.Properties.Income.eq(true)).orderAsc(BSortDao.Properties.Priority).list());
-        note.setOutSortlis(mSession.getBSortDao().queryBuilder()
+        note.setOutSortlis(mSession.getBillingSortDao().queryBuilder()
                 .where(BSortDao.Properties.Income.eq(false)).orderAsc(BSortDao.Properties.Priority).list());
         return note;
     }
@@ -184,8 +184,8 @@ public class LocalRepository {
      *
      * @param items
      */
-    public void updateBSoers(List<BSort> items){
-        mSession.getBSortDao().updateInTx(items);
+    public void updateBSoers(List<BillingSort> items){
+        mSession.getBillingSortDao().updateInTx(items);
     }
 
     /******************************delete**************************************/
@@ -195,7 +195,7 @@ public class LocalRepository {
      * @param id
      */
     public void deleteBSortById(Long id) {
-        mSession.getBSortDao().deleteByKey(id);
+        mSession.getBillingSortDao().deleteByKey(id);
     }
 
     /**

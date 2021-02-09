@@ -1,7 +1,7 @@
 package com.copasso.cocobill.presenter.contract;
 
 import com.copasso.cocobill.base.BaseContract;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
 
 import java.util.List;
@@ -24,9 +24,9 @@ public interface BillNoteContract extends BaseContract {
          */
         void getBillNote();
 
-        void updateBBsorts(List<BSort> items);
+        void updateBBsorts(List<BillingSort> items);
 
-        void addBSort(BSort bSort);
+        void addBSort(BillingSort billingSort);
         void deleteBSortByID(Long id);
     }
 }

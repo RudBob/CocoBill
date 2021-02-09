@@ -15,7 +15,7 @@ import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bumptech.glide.Glide;
 import com.copasso.cocobill.R;
 import com.copasso.cocobill.common.Constants;
-import com.copasso.cocobill.model.bean.local.BSort;
+import com.copasso.cocobill.model.bean.local.BillingSort;
 import com.copasso.cocobill.model.bean.local.NoteBean;
 import com.copasso.cocobill.model.bean.remote.MyUser;
 import com.copasso.cocobill.model.repository.LocalRepository;
@@ -53,6 +53,7 @@ import cn.bmob.v3.BmobUser;
  * Github: https://github.com/zas023
  *
  * 主界面activity
+ * @author ry
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         if (SharedPUtils.isFirstStart(mContext)) {
             Log.i(TAG, "第一次进入将默认账单分类添加到数据库");
             NoteBean note = new Gson().fromJson(Constants.BILL_NOTE, NoteBean.class);
-            List<BSort> sorts = note.getOutSortlis();
+            List<BillingSort> sorts = note.getOutSortlis();
             sorts.addAll(note.getInSortlis());
             LocalRepository.getInstance().saveBsorts(sorts);
             LocalRepository.getInstance().saveBPays(note.getPayinfo());
@@ -190,8 +191,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     monthChartFragment.changeDate(DateUtils.date2Str(date, "yyyy"), DateUtils.date2Str(date, "MM"));
                 }).setType(new boolean[]{true, true, false, false, false, false})
                         .setRangDate(null, Calendar.getInstance())
-                        .isDialog(true)//是否显示为对话框样式
+                        .isDialog(true)
                         .build().show();
+                //是否显示为对话框样式
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -205,11 +207,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_sync:    //同步账单
-                if (currentUser == null)
+            case R.id.nav_sync:
+                //同步账单
+                if (currentUser == null) {
                     SnackbarUtils.show(mContext, "请先登陆");
-                else
+                } else {
                     BmobRepository.getInstance().syncBill(currentUser.getObjectId());
+                }
                 break;
             case R.id.nav_setting:
                 startActivity(new Intent(mContext,SettingActivity.class));
