@@ -70,7 +70,7 @@ public class OwlView extends View {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 getViewTreeObserver().addOnGlobalLayoutListener(this);
                 ViewGroup.LayoutParams lp = getLayoutParams();
                 if(lp==null) {
